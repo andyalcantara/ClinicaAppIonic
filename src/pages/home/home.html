@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons start>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="ios-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="callClinic()">
+        <ion-icon name="call"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-menu type="overlay" [content]="mycontent">
+        <ion-content>
+          <ion-list>
+            <ion-item menuClose>
+              <button ion-item (click)="goToEspecPage()">About Us</button>
+            </ion-item>
+            <ion-item menuClose>
+              <button ion-item (click)="goToAboutPage()">Especialidades</button>
+            </ion-item>
+            <ion-item menuClose>
+              <button ion-item (click)="goToLocationPage()">Location</button>
+            </ion-item>
+          </ion-list>
+        </ion-content>
+    </ion-menu>
+      
+    <ion-nav #mycontent [root]="rootPage"></ion-nav>
+  <ion-slides>
+    <ion-slide>
+      <img src="../../assets/imgs/concordancia.png">
+    </ion-slide>
+    <ion-slide>
+      <img src="../../assets/imgs/labios-BN-small.png">
+    </ion-slide>
+    <ion-slide>
+      <img src="../../assets/imgs/men.png">
+    </ion-slide>
+    <ion-slide>
+      <img src="../../assets/imgs/perfect.png">
+    </ion-slide>
+    <ion-slide>
+      <img src="../../assets/imgs/sombrerito.png">
+    </ion-slide>
+  </ion-slides>
+
+  <h1>Bienvenidos</h1>
+    <p>Sabemos que su experiencia como paciente comienza en el momento 
+  en que es recibido en nuestro centro, por lo que haremos todo lo que esté a 
+  nuestro alcance para que se sienta relajado y cómodo. Nuestra clínica, además 
+  de ofrecerle un entorno agradable y acogedor, cuenta con la ventaja de encontrarse 
+  en una zona céntrica, privilegiada y dinámica de Sevilla, con sencillo acceso 
+  en transporte público y aparcamientos en la zona. Nuestro centro está habilitado 
+  en planta baja, para facilitar su comodidad y la de personas con minusvalías. 
+  La amabilidad y el trato personalizado son nuestra prioridad.</p>
+    <h4>Dra. Castellanos Cosano</h4>
+    <h4>Dr. Marzo García</h4>
+</ion-content>

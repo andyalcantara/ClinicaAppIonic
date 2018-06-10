@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Especialidades
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h1>Nuestras especialidades</h1>
+    <p>En su primera visita, un profesional cualificado va a darle 
+            las mejores opciones de tratamiento que tiene a su disposición y le va a explicar qué es lo que se 
+            ajusta a sus necesidades. Contamos con un equipo cuya principal prioridad es su persona, 
+            su expectativa y la evaluación adecuada de su caso particular, bajo la mejor profesionalidad, 
+            atendiendo a todas sus dudas e inquietudes e informándole de cuáles son las opciones adecuadas.
+    </p>
+    <ion-list>
+            <ion-card *ngFor="let item of items">
+                    <ion-card-header>
+                      {{item.title}}
+                    </ion-card-header>
+                    <ion-card-content>
+                      {{item.especialidad}}
+                    </ion-card-content>
+            </ion-card>
+    </ion-list>
+
+</ion-content>

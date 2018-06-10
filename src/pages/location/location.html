@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-buttons end>
+        <button ion-button icon-only clear (click)="callFromLocation()">
+          <ion-icon name="call"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title>Location</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content padding>
+    <h3 class="myHeader">We are located here!</h3>
+      <div #map id="map" style="width: 100%; height: 400px;"></div>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button 
+            ion-button
+            block
+            outline
+            (click)="calculateAndDisplayRoute()">Take me there!</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  </ion-content>

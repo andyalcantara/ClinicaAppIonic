@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Contact
+    </ion-title>
+    <ion-buttons end>
+        <button ion-button clear icon-only end (click)="makeCall()">
+          <ion-icon name="call"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <h3>Llene el formulario con sus datos:</h3>
+    
+      <ion-list>
+
+          <ion-item>
+            <ion-label fixed>Nombre</ion-label>
+            <ion-input type="text" placeholder="Nombre" ngModel></ion-input>
+          </ion-item>
+        
+          <ion-item>
+              <ion-label fixed>Apellidos</ion-label>
+              <ion-input type="text" placeholder="Apellidos" ngModel></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label fixed>Email addresse</ion-label>
+            <ion-input type="email" placeholder="email@example.com" ngModel></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label fixed>Fecha</ion-label>
+              <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" ngModel></ion-datetime>
+          </ion-item>
+
+          <ion-item>
+            <ion-label fixed>Dolencia</ion-label>
+            <ion-textarea type="text" ngModel></ion-textarea>
+          </ion-item>
+        
+        </ion-list>
+    <button ion-button (click)="sendEmail()">Send Email</button>
+  
+  <h3 offset-1 class="down">Si prefiere denos una llamada!!</h3>
+  <button ion-button (click)="callFromContact()"><ion-icon name="call"></ion-icon></button>
+    
+  </ion-grid>
+</ion-content>
