@@ -30,16 +30,16 @@ export class LocationPage {
 
   @ViewChild('map') mapElement: ElementRef;
   map: any;
-  //start = 'miami, fl';
-  //end = 'chicago, il';
+  
   start = this.currentLocation;
   end = new LatLng(26.114005, -80.348052);
   directionsService = new google.maps.DirectionsService;
   directionsDisplay = new google.maps.DirectionsRenderer;
 
-  constructor(public navCtrl: NavController, private geolocation: Geolocation, private callNumber: CallNumber) {
-
-  }
+  constructor(
+    public navCtrl: NavController, 
+    private geolocation: Geolocation, 
+    private callNumber: CallNumber) {}
 
   // Requests to the google directions api have the next form
   // URL: https://maps.googleapis.com/maps/api/directions/outputFormat?parameters in my case outputFormat will always be json so

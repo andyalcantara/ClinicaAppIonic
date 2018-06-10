@@ -15,6 +15,7 @@ import { EmailComposer } from '@ionic-native/email-composer';
 import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { CallNumber } from '@ionic-native/call-number';
+import { IonicStorageModule } from '@ionic/storage';
 
 //ios AIzaSyALEkI2PTU-VvnD_8T5-uWFbxDMV2h21Uc
 //android AIzaSyCx2NHB8Fht6NPANEKkwhHB06xFTHFLBcE
@@ -30,7 +31,8 @@ import { CallNumber } from '@ionic-native/call-number';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
