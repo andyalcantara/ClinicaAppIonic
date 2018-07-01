@@ -1,5 +1,16 @@
 page-contact {
-    h3 {
+    .contactHeader {
+        color: #ff7c01;
+        font-weight: 400;
+        margin-left: 100px;
+    }
+
+    .submitButton {
+        margin-left: 100px;
+    }
+
+    .llamada {
+        margin-left: 40px;
         color: #ff7c01;
         font-weight: 200;
     }

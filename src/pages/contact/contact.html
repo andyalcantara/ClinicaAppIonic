@@ -13,7 +13,7 @@
 
 <ion-content>
   <ion-grid>
-    <h3 color="primary">Solicite una cita:</h3>
+    <h3 class="contactHeader">Solicite una cita:</h3>
     <form #f="ngForm" (ngSubmit)="onEmailSend(f)">
       <ion-list>
 
@@ -48,10 +48,10 @@
         </ion-item>
       
       </ion-list>
-  <button ion-button (click)="sendEmail()">Send Email</button>
+      <button ion-button (click)="sendEmail()" class="submitButton">Mandar Solicitud</button>
     </form>
   
-  <h3 offset-1 class="down">Si prefiere denos una llamada!!</h3>
+  <h3 class="llamada">Si prefiere denos una llamada!!</h3>
   <button ion-button (click)="callFromContact()"><ion-icon name="call"></ion-icon></button>
     
   </ion-grid>
