@@ -20,11 +20,19 @@
             atendiendo a todas sus dudas e inquietudes e informándole de cuáles son las opciones adecuadas.
     </p>
     <ion-list>
-            <ion-card *ngFor="let item of items">
+            <ion-card *ngFor="let item of items" (click)="itemSelected(item)">
                     <ion-card-header>
-                      {{item.title}}
+                      <ion-col>
+                        {{item.title}}
+                      </ion-col>
+                      <ion-col>
+                          <ion-icon name="ios-add" *ngIf="!item.active" item-end></ion-icon>
+                      </ion-col>
+                      <ion-col>
+                          <ion-icon name="ios-remove" *ngIf="item.active" item-end></ion-icon>
+                      </ion-col>
                     </ion-card-header>
-                    <ion-card-content>
+                    <ion-card-content *ngIf="item.active">
                       {{item.especialidad}}
                     </ion-card-content>
             </ion-card>
