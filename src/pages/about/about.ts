@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Especialidad } from '../../models/especialidad';
 
+import { CallNumber } from '@ionic-native/call-number';
+
 @Component({
   selector: 'page-about',
   templateUrl: 'about.html'
@@ -18,13 +20,24 @@ export class AboutPage {
     {title: 'Periodoncia', especialidad: 'Esta relacionada con los tejidos que sostienen y protegen a nuestros dientes, una incorrecta higiene dental estimula la aparicion de estas enfermadades. En nuestra clinica contamos con tratamientos que pueden ayudar a eliminar tan indeseados problemas, porque tu sonrisa cuenta. Visitanos!!', index: 5}
   ];
   
-  constructor(public navCtrl: NavController) {
+  constructor(
+    public navCtrl: NavController,
+    private callNumber: CallNumber
+  ) {
 
   }
 
   itemSelected(index: number, item: Especialidad) {
     if (index == item.index) {
       this.isActive = !this.isActive;
+    }
+  }
+
+  callFromEspec() {
+    if (this.callNumber.isCallSupported) {
+      this.callNumber.callNumber("13059105202", true)
+        .then(res => console.log('Launched dialer!', res))
+        .catch(err => console.log('Error launching dialer', err));
     }
   }
 }

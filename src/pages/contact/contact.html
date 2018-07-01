@@ -14,36 +14,42 @@
 <ion-content>
   <ion-grid>
     <h3>Llene el formulario con sus datos:</h3>
-    
+    <form #f="ngForm" (ngSubmit)="onEmailSend(f)">
       <ion-list>
 
-          <ion-item>
-            <ion-label fixed>Nombre</ion-label>
-            <ion-input type="text" placeholder="Nombre" ngModel></ion-input>
-          </ion-item>
-        
-          <ion-item>
-              <ion-label fixed>Apellidos</ion-label>
-              <ion-input type="text" placeholder="Apellidos" ngModel></ion-input>
-          </ion-item>
+        <ion-item>
+          <ion-label fixed>Nombre</ion-label>
+          <ion-input type="text" placeholder="Nombre" name="name" ngModel></ion-input>
+        </ion-item>
+      
+        <ion-item>
+            <ion-label fixed>Apellidos</ion-label>
+            <ion-input type="text" placeholder="Apellidos" name="lastName" ngModel></ion-input>
+        </ion-item>
 
-          <ion-item>
-            <ion-label fixed>Email addresse</ion-label>
-            <ion-input type="email" placeholder="email@example.com" ngModel></ion-input>
-          </ion-item>
+        <ion-item>
+          <ion-label fixed>Email addresse</ion-label>
+          <ion-input type="email" placeholder="email@example.com" name="email" ngModel></ion-input>
+        </ion-item>
 
-          <ion-item>
-              <ion-label fixed>Fecha</ion-label>
-              <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" ngModel></ion-datetime>
-          </ion-item>
+        <ion-item>
+            <ion-label fixed>Fecha</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" name="date" ngModel></ion-datetime>
+        </ion-item>
 
-          <ion-item>
-            <ion-label fixed>Dolencia</ion-label>
-            <ion-textarea type="text" ngModel></ion-textarea>
-          </ion-item>
-        
-        </ion-list>
-    <button ion-button (click)="sendEmail()">Send Email</button>
+        <ion-item>
+          <ion-label fixed>Motivo de su visita:</ion-label>
+          <ion-input type="text" name="motivo" ngModel></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label fixed>Dolencia</ion-label>
+          <ion-textarea type="text" name="dolencia" ngModel></ion-textarea>
+        </ion-item>
+      
+      </ion-list>
+  <button ion-button (click)="sendEmail()">Send Email</button>
+    </form>
   
   <h3 offset-1 class="down">Si prefiere denos una llamada!!</h3>
   <button ion-button (click)="callFromContact()"><ion-icon name="call"></ion-icon></button>

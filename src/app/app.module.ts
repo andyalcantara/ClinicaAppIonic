@@ -1,6 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { FormsModule } from '@angular/forms';
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
@@ -31,6 +32,7 @@ import { IonicStorageModule } from '@ionic/storage';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],

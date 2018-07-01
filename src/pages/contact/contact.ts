@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { CallNumber } from '@ionic-native/call-number';
 
+import { NgForm } from '@angular/forms';
+
 @Component({
   selector: 'page-contact',
   templateUrl: 'contact.html'
@@ -12,24 +14,25 @@ export class ContactPage {
   constructor(
     public navCtrl: NavController, 
     private emailComposer: EmailComposer, 
-    private callNumber: CallNumber) {}
+    private callNumber: CallNumber
+  ) {}
 
-  sendEmail() {
-  this.emailComposer.isAvailable().then((available: boolean) =>{
-    if(available) {
-      //Now we know we can send
-      console.log(available);
-    }
-    let email = {
-      to: 'sheldoneinsestein@gmail.com',
-      subject: 'Cordova Icons',
-      body: 'How are you? Nice greetings from Leipzig',
-      isHtml: true
-    };
-    
-    // Send a text message using default options
-    this.emailComposer.open(email);
-   });
+  onEmailSend(form: NgForm) {
+      this.emailComposer.isAvailable().then((available: boolean) =>{
+        if(available) {
+          //Now we know we can send
+          console.log(available);
+        }
+        let email = {
+          to: 'sheldoneinsestein@gmail.com',
+          subject: form.value.motivo,
+          body: form.value.date + form.value.dolencia,
+          isHtml: true
+        };
+        
+        // Send a text message using default options
+        this.emailComposer.open(email);
+       });
   }
 
   callFromContact() {
