@@ -1,16 +1,28 @@
 page-home {
     .welcome {
-        margin-top: 150px;
+        margin-top: 60px;
         text-align: center;
     }
 
     .doctora {
         margin-top: 40px;
         text-align: center;
+        font-weight: 300;
+        color: #ff7c01;
     }
 
     .doctor {
         margin-top: 40px;
         text-align: center;
+        font-weight: 300;
+        color: #ff7c01;
     }
+
+    img {
+        margin-top: 20px;
+        margin-left: 130px;
+        width: 85px;
+        height: 104px;
+    }
+
 }
