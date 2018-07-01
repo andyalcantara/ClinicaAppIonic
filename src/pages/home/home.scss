@@ -1,12 +1,16 @@
 page-home {
-    ion-slides {
-        height: 160px;
+    .welcome {
+        margin-top: 150px;
+        text-align: center;
     }
 
-    h1 {
+    .doctora {
+        margin-top: 40px;
         text-align: center;
-        font-weight: 300;
-        color: #ff7c01;
-        border-bottom: 1px solid #ff7c01;
+    }
+
+    .doctor {
+        margin-top: 40px;
+        text-align: center;
     }
 }
