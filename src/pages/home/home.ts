@@ -11,7 +11,11 @@ import { LocationPage } from '../location/location';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, private callNumber: CallNumber, private menuCtrl: MenuController) {
+  constructor(
+    public navCtrl: NavController, 
+    private callNumber: CallNumber, 
+    private menuCtrl: MenuController
+  ) {
 
   }
 
@@ -20,9 +24,13 @@ export class HomePage {
     this.callNumber.callNumber("13059105202", true)
       .then(res => console.log('Launched dialer!', res))
       .catch(err => console.log('Error launching dialer', err));
+    }
+    console.log('Your call could not be completed!');
   }
-  console.log('Your call could not be completed!');
-}
+
+  addContact() {
+
+  }
 
   goToAboutPage() {
     this.navCtrl.push(AboutPage);
