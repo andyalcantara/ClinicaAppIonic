@@ -17,6 +17,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { CallNumber } from '@ionic-native/call-number';
 import { IonicStorageModule } from '@ionic/storage';
+import { Contacts } from '@ionic-native/contacts';
 
 //ios AIzaSyALEkI2PTU-VvnD_8T5-uWFbxDMV2h21Uc
 //android AIzaSyCx2NHB8Fht6NPANEKkwhHB06xFTHFLBcE
@@ -50,6 +51,7 @@ import { IonicStorageModule } from '@ionic/storage';
     CallNumber,
     Geolocation,
     GoogleMaps,
+    Contacts,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

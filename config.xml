@@ -99,8 +99,8 @@
     <allow-navigation href="http://192.168.1.92:8101" />
     <allow-navigation href="http://10.0.0.210:8100" />
     <allow-navigation href="http://192.168.0.168:8100" />
-    <engine name="ios" spec="4.5.4" />
-    <engine name="browser" spec="5.0.3" />
     <plugin name="cordova-sqlite-storage" spec="^2.3.2" />
     <plugin name="cordova-plugin-contacts" spec="^3.0.1" />
+    <engine name="ios" spec="4.5.4" />
+    <engine name="browser" spec="5.0.3" />
 </widget>

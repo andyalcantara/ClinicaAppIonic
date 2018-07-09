@@ -5,16 +5,21 @@ import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
 import { LocationPage } from '../location/location';
 
+import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/contacts';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
 
+  clinicContact: Contact;
+
   constructor(
     public navCtrl: NavController, 
     private callNumber: CallNumber, 
-    private menuCtrl: MenuController
+    private menuCtrl: MenuController,
+    private contacts: Contacts
   ) {
 
   }
@@ -29,7 +34,12 @@ export class HomePage {
   }
 
   addContact() {
-
+    this.clinicContact = this.contacts.create();
+    this.clinicContact.name = new ContactName(null, 'Dental', 'Clinic');
+    this.clinicContact.phoneNumbers = [new ContactField('home', '13059105202', false)];
+    this.clinicContact.save().then(res => {
+      console.log(res);
+    });
   }
 
   goToAboutPage() {
