@@ -1,11 +1,11 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-buttons start>
-      <button ion-button icon-only menuToggle>
+      <button  *ngIf="currentPlatform !== 'core'" ion-button icon-only menuToggle>
         <ion-icon name="ios-menu"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-buttons end>
+    <ion-buttons *ngIf="currentPlatform !== 'core'" end>
       <button class="myButton" ion-button icon-only (click)="addContact()">
         <ion-icon ios="ios-person-add" md="md-person-add"></ion-icon>
       </button>
@@ -13,12 +13,13 @@
         <ion-icon name="call"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>Home</ion-title>
+    <ion-title *ngIf="currentPlatform === 'core'">Clinica Dental Castellanos</ion-title>
+    <ion-title *ngIf="currentPlatform !== 'core'"><ion-icon><</ion-icon>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-menu type="overlay" [content]="mycontent">
+    <ion-menu *ngIf="currentPlatform !== 'core'" type="overlay" [content]="mycontent">
         <ion-content>
           <ion-list>
             <ion-item menuClose>
@@ -48,3 +49,28 @@
     <h4 class="doctora">Dra. Castellanos Cosano</h4>
     <h4 class="doctor">Dr. Marzo García</h4>
 </ion-content>
+
+<ion-footer *ngIf="currentPlatform === 'core'">
+  <ion-toolbar color="primary">
+    <ion-title style="margin-top: 20px;">Clinica Dental Castellanos</ion-title>
+    <ion-row>
+      <ion-col col-4></ion-col>
+      <ion-col col-2>
+        <h6>Acerca</h6>
+        <p>Hello Hello hello hello hello hello hello hello hello</p>
+      </ion-col>
+      <ion-col col-2>
+          <h6>Preguntas frecuentes</h6>
+        <p>Hello Hello Hello Hello Hello Hello Hello Hello Hello</p>
+      </ion-col>
+      <ion-col col-2>
+          <h6>Ayuda</h6>
+          <p>Hello Hello hello hello hello hello hello hello hello</p>
+      </ion-col>
+      <ion-col col-2>
+          <h6>Contactenos</h6>
+          <p>Hello Hello hello hello hello hello hello hello hello</p>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

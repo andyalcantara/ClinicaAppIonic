@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, MenuController } from 'ionic-angular';
+import { NavController, MenuController, Platform } from 'ionic-angular';
 import { CallNumber } from '@ionic-native/call-number';
 import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
@@ -14,14 +14,26 @@ import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/cont
 export class HomePage {
 
   clinicContact: Contact;
+  currentPlatform: string;
 
   constructor(
     public navCtrl: NavController, 
     private callNumber: CallNumber, 
     private menuCtrl: MenuController,
-    private contacts: Contacts
+    private contacts: Contacts,
+    private platform: Platform
   ) {
+    
+  }
 
+  ionViewWillEnter() {
+    console.log(this.platform.platforms());
+    if (this.platform.is('core')) {
+      this.currentPlatform = 'core';
+    } else if (this.platform.is('ios')) {
+      this.currentPlatform = 'not core';
+    }
+    console.log(this.currentPlatform);
   }
 
   callClinic() {
