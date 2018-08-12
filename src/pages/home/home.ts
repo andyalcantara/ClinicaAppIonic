@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, MenuController, Platform } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, MenuController, Platform, Slides } from 'ionic-angular';
 import { CallNumber } from '@ionic-native/call-number';
 import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
@@ -13,8 +13,17 @@ import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/cont
 })
 export class HomePage {
 
+  @ViewChild('slides') slides: Slides;
+
   clinicContact: Contact;
   currentPlatform: string;
+  carouselImg: string[] = [
+    '../../assets/imgs/concordancia.png',
+    '../../assets/imgs/labios-BN-small.png',
+    '../../assets/imgs/men.png',
+    '../../assets/imgs/perfect.png',
+    '../../assets/imgs/sombrerito.png'
+  ]
 
   constructor(
     public navCtrl: NavController, 

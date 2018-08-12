@@ -1,9 +1,12 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-buttons start>
-      <button  *ngIf="currentPlatform !== 'core'" ion-button icon-only menuToggle>
+    <ion-buttons start *ngIf="currentPlatform === 'core'">
+      <button ion-button icon-only menuToggle>
         <ion-icon name="ios-menu"></ion-icon>
       </button>
+      <button ion-button *ngIf="currentPlatform === 'core'">Programar Cita</button>
+      <button ion-button style="margin-left: 40px;" *ngIf="currentPlatform === 'core'">Precios</button>
+      <button ion-button style="margin-left: 40px; margin-right: 600px;" *ngIf="currentPlatform === 'core'">Quienes somos</button>
     </ion-buttons>
     <ion-buttons *ngIf="currentPlatform !== 'core'" end>
       <button class="myButton" ion-button icon-only (click)="addContact()">
@@ -14,11 +17,11 @@
       </button>
     </ion-buttons>
     <ion-title *ngIf="currentPlatform === 'core'">Clinica Dental Castellanos</ion-title>
-    <ion-title *ngIf="currentPlatform !== 'core'"><ion-icon><</ion-icon>Home</ion-title>
+    <ion-title *ngIf="currentPlatform !== 'core'"><ion-icon></ion-icon>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
     <ion-menu *ngIf="currentPlatform !== 'core'" type="overlay" [content]="mycontent">
         <ion-content>
           <ion-list>
@@ -34,43 +37,60 @@
           </ion-list>
         </ion-content>
     </ion-menu>
+
+    <ion-nav #mycontent [root]="root"></ion-nav>
+
+    <ion-slides 
+      #slides 
+      pager 
+      loop
+      speed="500"
+      autoplay="5000"
+      *ngIf="currentPlatform === 'core'">
+
+      <ion-slide *ngFor="let img of carouselImg">
+        <img src="{{img}}" style="width: 100%;"/>
+      </ion-slide>
+    </ion-slides>
+
+      <ion-row padding>
+          <p class="welcome" [ngClass]="{'welcomeApp': currentPlatform !== 'core'}">Sabemos que su experiencia como paciente comienza en el momento 
+              en que es recibido en nuestro centro, por lo que haremos todo lo que esté a 
+              nuestro alcance para que se sienta relajado y cómodo. Nuestra clínica, además 
+              de ofrecerle un entorno agradable y acogedor, cuenta con la ventaja de encontrarse 
+              en una zona céntrica, privilegiada y dinámica de Sevilla, con sencillo acceso 
+              en transporte público y aparcamientos en la zona. Nuestro centro está habilitado 
+              en planta baja, para facilitar su comodidad y la de personas con minusvalías. 
+              La amabilidad y el trato personalizado son nuestra prioridad.</p>
+      </ion-row>
+      <ion-row>
+          <h4 class="doctora">Dra. Castellanos Cosano</h4>
+      </ion-row>
+      <ion-row>
+          <h4 class="doctor">Dr. Marzo García</h4>
+      </ion-row>
+
+      <ion-toolbar color="primary" style="padding: 0;" *ngIf="currentPlatform === 'core'">
+            <ion-title style="margin-top: 20px;">Clinica Dental Castellanos</ion-title>
+            <ion-row>
+              <ion-col col-3></ion-col>
+              <ion-col col-2>
+                <h6>Acerca</h6>
+                <p>Hello Hello hello hello hello hello hello hello hello</p>
+              </ion-col>
+              <ion-col col-2>
+                  <h6>Preguntas frecuentes</h6>
+                <p>Hello Hello Hello Hello Hello Hello Hello Hello Hello</p>
+              </ion-col>
+              <ion-col col-2>
+                  <h6>Ayuda</h6>
+                  <p>Hello Hello hello hello hello hello hello hello hello</p>
+              </ion-col>
+              <ion-col col-2>
+                  <h6>Contactenos</h6>
+                  <p>Hello Hello hello hello hello hello hello hello hello</p>
+              </ion-col>
+          </ion-row>
+      </ion-toolbar>
       
-    <ion-nav #mycontent [root]="rootPage"></ion-nav>
-    <img src="../../assets/imgs/IMG_3687.PNG">
-
-    <p class="welcome">Sabemos que su experiencia como paciente comienza en el momento 
-  en que es recibido en nuestro centro, por lo que haremos todo lo que esté a 
-  nuestro alcance para que se sienta relajado y cómodo. Nuestra clínica, además 
-  de ofrecerle un entorno agradable y acogedor, cuenta con la ventaja de encontrarse 
-  en una zona céntrica, privilegiada y dinámica de Sevilla, con sencillo acceso 
-  en transporte público y aparcamientos en la zona. Nuestro centro está habilitado 
-  en planta baja, para facilitar su comodidad y la de personas con minusvalías. 
-  La amabilidad y el trato personalizado son nuestra prioridad.</p>
-    <h4 class="doctora">Dra. Castellanos Cosano</h4>
-    <h4 class="doctor">Dr. Marzo García</h4>
 </ion-content>
-
-<ion-footer *ngIf="currentPlatform === 'core'">
-  <ion-toolbar color="primary">
-    <ion-title style="margin-top: 20px;">Clinica Dental Castellanos</ion-title>
-    <ion-row>
-      <ion-col col-4></ion-col>
-      <ion-col col-2>
-        <h6>Acerca</h6>
-        <p>Hello Hello hello hello hello hello hello hello hello</p>
-      </ion-col>
-      <ion-col col-2>
-          <h6>Preguntas frecuentes</h6>
-        <p>Hello Hello Hello Hello Hello Hello Hello Hello Hello</p>
-      </ion-col>
-      <ion-col col-2>
-          <h6>Ayuda</h6>
-          <p>Hello Hello hello hello hello hello hello hello hello</p>
-      </ion-col>
-      <ion-col col-2>
-          <h6>Contactenos</h6>
-          <p>Hello Hello hello hello hello hello hello hello hello</p>
-      </ion-col>
-    </ion-row>
-  </ion-toolbar>
-</ion-footer>
